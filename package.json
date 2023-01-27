@@ -1,0 +1,20 @@
+{
+  "name": "study-frontend-environment",
+  "version": "1.0.0",
+  "description": "`인프런: 프론트엔드 개발환경의 이해와 실습`을 수강하면서 작성한 코드입니다.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tmdals9974/study-frontend-environment.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tmdals9974/study-frontend-environment/issues"
+  },
+  "homepage": "https://github.com/tmdals9974/study-frontend-environment#readme"
+}
