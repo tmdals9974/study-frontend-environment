@@ -14,6 +14,14 @@
 
 ![Generic badge](https://img.shields.io/badge/nodejs-v12.18.2-blue.svg) ![Generic badge](https://img.shields.io/badge/npm-v6.14.5-blue.svg)
 
+## 📚강의 교재
+
+- [프론트엔드 개발환경의 이해: NPM](https://jeonghwan-kim.github.io/series/2019/12/09/frontend-dev-env-npm.html)
+- [프론트엔드 개발환경의 이해: 웹팩(기본)](https://jeonghwan-kim.github.io/series/2019/12/10/frontend-dev-env-webpack-basic.html)
+- [프론트엔드 개발환경의 이해: Babel](https://jeonghwan-kim.github.io/series/2019/12/22/frontend-dev-env-babel.html)
+- [프론트엔드 개발환경의 이해: 린트](https://jeonghwan-kim.github.io/series/2019/12/30/frontend-dev-env-lint.html)
+- [프론트엔드 개발환경의 이해: 웹팩(심화)](https://jeonghwan-kim.github.io/series/2020/01/02/frontend-dev-env-webpack-intermediate.html)
+
 ## 📝강의 정리 자료
 
 - [NPM](docs/npm.md)
