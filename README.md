@@ -13,3 +13,10 @@
 ## 📌프로젝트 개발 환경
 
 ![Generic badge](https://img.shields.io/badge/nodejs-v12.18.2-blue.svg) ![Generic badge](https://img.shields.io/badge/npm-v6.14.5-blue.svg)
+
+## 📝강의 정리 자료
+
+- [NPM](docs/npm.md)
+- [Webpack](docs/webpack.md)
+- [Babel](docs/babel.md)
+- [Lint](docs/lint.md)
