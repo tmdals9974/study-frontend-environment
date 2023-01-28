@@ -49,6 +49,11 @@ module.exports = {
           limit: 20000, // 20kb 이하의 크기는 url-loader로 base64 인코딩. 20kb 이상은 file-loader가 처리해줌.
         },
       },
+      { // webpack에 babel 통합
+        test: /\.js$/,
+        loader: "babel-loader",
+        exclude: /node_modules/,
+      },
     ],
   },
   plugins: [

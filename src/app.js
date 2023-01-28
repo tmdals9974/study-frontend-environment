@@ -12,3 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <img src="${nyancat}" />
   `;
 });
+
+// babel
+const alert = msg => window.alert(msg);
+new Promise();
