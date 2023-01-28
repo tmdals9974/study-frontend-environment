@@ -12,7 +12,7 @@
 
 ## 📌프로젝트 개발 환경
 
-![Generic badge](https://img.shields.io/badge/nodejs-v12.18.2-blue.svg) ![Generic badge](https://img.shields.io/badge/npm-v6.14.5-blue.svg)
+![Generic badge](https://img.shields.io/badge/nodejs-v14.21.2-blue.svg) ![Generic badge](https://img.shields.io/badge/npm-v6.14.17-blue.svg)
 
 ## 📚강의 교재
 
