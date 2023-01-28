@@ -20,7 +20,7 @@ npx babel ./src/app.js --plugins './my-babel-plugin.js'
 - **자주 사용하는 프리셋**
   - preset-env: ES2015+ 를 변활할 때 사용. 바벨7 이전 버전에서는 년도별로 프리셋을 제공하였으나 (babel-reset-es2015, babel-reset-es2016...) `env 하나로 통합`됨.
     - `target` 옵션을 통해 브라우저별 버전 설정 가능. 사용법은 `babel.config.js` 참고 (`targets`)
-    - `폴리필` 옵션을 통해 지원하지 않는 문법을 지원하게 할 수 있음. 사용법은 `babel.config.js` 참고 (`useBuiltIns`, `corejs`)
+    - `폴리필` 옵션을 통해 지원하지 않는 문법을 지원하게 할 수 있음. 사용법은 `babel.config.js` 참고 (`useBuiltIns`: 폴리필 사용 여부, `corejs`: 폴리필에 사용할 corejs 버전)
   - preset-react
   - preset-typescript
 - webpack과 통합하고 싶을때는, `babel-loader`를 설치하여 webpack loader에 추가해주면 됨. (babel config에 `corejs`를 사용중이라면 해당하는 버전의 corejs를 npm install 해야함)
