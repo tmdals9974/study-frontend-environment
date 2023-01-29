@@ -13,6 +13,6 @@ module.exports = {
   },
   plugins: ["prettier"],
   rules: {
-    "prettier/prettier": "error",
+    "prettier/prettier": ["error", { printWidth: 120, useTab: false, tabWidth: 2, semi: true, singleQuote: false }],
   },
 };

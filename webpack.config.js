@@ -29,12 +29,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [
-          process.env.NODE_ENV === "production"
-            ? MiniCssExtractPlugin.loader
-            : "style-loader",
-          "css-loader",
-        ], //webpack.md 참고.   MiniCssExtractPlugin을 사용할 경우 style-loader 대신 MiniCssExtractPlugin.loader 사용 필요.
+        use: [process.env.NODE_ENV === "production" ? MiniCssExtractPlugin.loader : "style-loader", "css-loader"], //webpack.md 참고.   MiniCssExtractPlugin을 사용할 경우 style-loader 대신 MiniCssExtractPlugin.loader 사용 필요.
       },
       // ? //file-loader 세팅방법. 그러나 url-loader를 사용하면 file-loader가 대체됨.
       // {
@@ -90,8 +85,15 @@ module.exports = {
           : false,
     }),
     new CleanWebpackPlugin(),
-    ...(process.env.NODE_ENV === "production"
-      ? [new MiniCssExtractPlugin({ filename: "[name].css" })]
-      : []), //사용하지 않는 것이 빌드속도가 빠르기 때문에, 개발환경에서는 제외.
+    ...(process.env.NODE_ENV === "production" ? [new MiniCssExtractPlugin({ filename: "[name].css" })] : []), //사용하지 않는 것이 빌드속도가 빠르기 때문에, 개발환경에서는 제외.
   ],
+  devServer: {
+    contentBase: path.join(__dirname, "dist"), //정적파일을 제공할 경로. 기본값은 웹팩 아웃풋.
+    publicPath: "/", //브라우저를 통해 접근하는 경로. 기본값은 '/'.
+    //host: "dev.domain.com", //개발환경에서 도메인을 맞추어야하는 상황에서 사용. 운영체제 호스트 파일에서 도메인과 127.0.0.1을 연결해야 사용 가능.
+    overlay: true, //빌드 시 에러나 경고를 브라우저에 표시할 지 여부.
+    port: 8080, //개발서버 포트 설정
+    stats: "errors-only", // webpack server 실행 후 콘솔에 표시될 메시지 수준을 정함. ['none', 'errors-only', 'mininal', 'normal', 'verbose']
+    historyApiFallback: true, //히스토리 API를 사용하는 SPA 개발 시 설정. 404가 발생하면 index.html로 리다이렉트한다.
+  },
 };
