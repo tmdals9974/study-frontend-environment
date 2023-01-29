@@ -25,3 +25,6 @@ npx eslint app.js
 
 - 모든 rule을 일일이 작성하는 것은 어렵기에 `Extensible Config`을 이용하여 rules를 묶어둘 수 있음.
 - 자주 사용하는 Configs: [`eslint:recommended`, `eslint-config-airbnb-base`, `eslint-config-standard`]
+
+## Prettier와 통합 방법
+- [해당 문서 하단 확인](./prettier.md)

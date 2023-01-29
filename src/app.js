@@ -21,6 +21,11 @@ document.addEventListener("DOMContentLoaded", () => {
 // babel
 const alert = msg => window.alert(msg);
 new Promise();// lint error 확인
+
+// lint error 확인
 console.log()
 (function() {})()
 
+// prettier 확인
+console.log(" -------------------------------------------------------- 80자가 넘는 매우 긴 문장 --------------------------------------------------------");
+console.log(console.log, console.assert, console.clear, console.count, console.countReset, console.debug, console.dir, console.dirxml, console.error, console.group, console.groupCollapsed);

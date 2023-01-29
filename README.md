@@ -29,3 +29,4 @@
 - [Babel](docs/babel.md)
 - [SASS](docs/sass.md)
 - [Lint](docs/lint.md)
+- [Prettier](docs/prettier.md)
