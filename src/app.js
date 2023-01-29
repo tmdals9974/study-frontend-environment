@@ -1,3 +1,8 @@
+/* eslint-disable no-new */
+/* eslint-disable no-unused-vars */
+/* eslint-disable quotes */
+/* eslint-disable semi */
+
 // my-webpack-loader test
 import * as math from "./math.js";
 console.log(math.sum(1, 2));
@@ -15,4 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // babel
 const alert = msg => window.alert(msg);
-new Promise();
+new Promise();// lint error 확인
+console.log()
+(function() {})()
+
