@@ -19,8 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // babel
-const alert = msg => window.alert(msg);
-new Promise();// lint error 확인
+const alert = (msg) => window.alert(msg);
+new Promise();
 
 // lint error 확인
 console.log()

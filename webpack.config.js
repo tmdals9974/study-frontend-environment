@@ -29,7 +29,12 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [process.env.NODE_ENV === "production" ? MiniCssExtractPlugin.loader : "style-loader", "css-loader"], //webpack.md 참고.   MiniCssExtractPlugin을 사용할 경우 style-loader 대신 MiniCssExtractPlugin.loader 사용 필요.
+        use: [
+          process.env.NODE_ENV === "production"
+            ? MiniCssExtractPlugin.loader
+            : "style-loader",
+          "css-loader",
+        ], //webpack.md 참고.   MiniCssExtractPlugin을 사용할 경우 style-loader 대신 MiniCssExtractPlugin.loader 사용 필요.
       },
       // ? //file-loader 세팅방법. 그러나 url-loader를 사용하면 file-loader가 대체됨.
       // {
@@ -49,7 +54,8 @@ module.exports = {
           limit: 20000, // 20kb 이하의 크기는 url-loader로 base64 인코딩. 20kb 이상은 file-loader가 처리해줌.
         },
       },
-      { // webpack에 babel 통합
+      {
+        // webpack에 babel 통합
         test: /\.js$/,
         loader: "babel-loader",
         exclude: /node_modules/,
@@ -72,7 +78,9 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: "./src/index.html",
-      templateParameters: { env: process.env.NODE_ENV === "development" ? "(개발용)" : "(운영용)" }, //html에서 ejs문법으로 받아올 수 있음.
+      templateParameters: {
+        env: process.env.NODE_ENV === "development" ? "(개발용)" : "(운영용)", //html에서 ejs문법으로 받아올 수 있음.
+      },
       minify:
         process.env.NODE_ENV === "production"
           ? {
@@ -82,6 +90,8 @@ module.exports = {
           : false,
     }),
     new CleanWebpackPlugin(),
-    ...(process.env.NODE_ENV === "production" ? [new MiniCssExtractPlugin({ filename: "[name].css" })] : []), //사용하지 않는 것이 빌드속도가 빠르기 때문에, 개발환경에서는 제외.
+    ...(process.env.NODE_ENV === "production"
+      ? [new MiniCssExtractPlugin({ filename: "[name].css" })]
+      : []), //사용하지 않는 것이 빌드속도가 빠르기 때문에, 개발환경에서는 제외.
   ],
 };
