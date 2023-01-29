@@ -27,4 +27,33 @@ npx eslint app.js
 - 자주 사용하는 Configs: [`eslint:recommended`, `eslint-config-airbnb-base`, `eslint-config-standard`]
 
 ## Prettier와 통합 방법
+
 - [해당 문서 하단 확인](./prettier.md)
+
+## 자동화 방법
+
+- 매번 명령어를 이용하여 린팅하는 것보다, `git commit` 전에 자동으로 명령어 실행하도록 `자동화` 하는 것을 추천.
+- 린팅을 통과하지 못하면 커밋되지 않음.
+
+1. 패키지 설치
+   - husky: git commit 시점에 명령어 실행하도록 해줌
+   - lint-staged: git stage에 있는 파일만 linting 가능
+
+```shell
+npm i -D husky lint-staged
+```
+
+2. `package.json`에 추가
+
+```javascript
+{
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": "eslint --fix"
+  }
+}
+```
