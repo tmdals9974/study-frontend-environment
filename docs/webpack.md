@@ -46,3 +46,8 @@ webpack
   - HtmlTemplatePlugin: HTML 파일을 후처리할 수 있게 해줌. (빌드 타임의 값을 넣거나 코드를 압축하는 등 가능) **해당 Plugin을 사용하기 전까지는 HTML은 번들링 결과에서 제외되며, HTML에 빌드된 js를 직접 script src로 연결해주어야 했었음. 그러나 해당 플러그인 사용 시 명시한 HTML은 함께 번들링해주며, 자동으로 번들링 된 script와 연결해줌.**
   - CleanWebpackPlugin: output 폴더를 삭제하고 빌드해줌.
   - MiniCssExtractPlugin: CSS별로 파일을 뽑아내는 플러그인. (단, 해당 플러그인 사용 시 style-loader 대신 MiniCssExtractPlugin.loader 사용 필요.)
+
+## 개발서버
+- `webpack-dev-server` 패키지 설치를 통해 개발서버 구축 가능.
+- `webpack-dev-server` 명령어를 통해 개발서버 실행 가능하며 핫로딩 지원. (`--progress` 옵션 사용 가능)
+- `webpack.config.js` 파일에 `devServer` 객체를 통해 옵션 설정 가능.
