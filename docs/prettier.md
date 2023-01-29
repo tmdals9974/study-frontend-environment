@@ -17,6 +17,12 @@ npx prettier app.js
 5.  설정값 변경하고 싶을 경우, `.prettierrc.js` 파일 작성
 
 ## ESLint와 통합 방법
+> 주의! [공식 문서](https://prettier.io/docs/en/integrating-with-linters.html#notes)를 보면, `eslint-plugin-prettier`의 사용은 비추천하고 있다.
+> `eslint-config-prettier`만 사용하고, `editor`의 `default formatter`를 `prettier`로 지정해주는 것을 추천한다. [참고 문서](https://heewon26.tistory.com/262)
+>
+> 내 경험으로도, `eslint-config-prettier`와 `eslint-plugin-prettier`를 모두 설정한 경우,
+> `.prettierrc.js`에서 설정한 내용과 다르게 `eslint`에서 오류가 발생하여, `eslintrc.js`에서 추가로 설정을 해줘야 했던 상황도 있었으며,
+> 오류명도 `prettier/prettier`로 나와서 원인을 알기도 힘들었다.
 
 ### 1. `eslint-config-prettier` 패키지 설치
 
