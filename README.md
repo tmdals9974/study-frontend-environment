@@ -27,4 +27,5 @@
 - [NPM](docs/npm.md)
 - [Webpack](docs/webpack.md)
 - [Babel](docs/babel.md)
+- [SASS](docs/sass.md)
 - [Lint](docs/lint.md)
