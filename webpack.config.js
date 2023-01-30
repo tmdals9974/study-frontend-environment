@@ -5,11 +5,16 @@ const childProcess = require("child_process");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
+const mode = process.env.NODE_ENV || "development";
 module.exports = {
-  mode: "development",
+  mode,
   entry: {
     main: "./src/app.js",
+    math: "./src/math.js",
   },
   output: {
     path: path.resolve("./dist"),
@@ -86,6 +91,12 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
     ...(process.env.NODE_ENV === "production" ? [new MiniCssExtractPlugin({ filename: "[name].css" })] : []), //사용하지 않는 것이 빌드속도가 빠르기 때문에, 개발환경에서는 제외.
+    new CopyPlugin([
+      {
+        from: "./node_modules/axios/dist/axios.min.js",
+        to: "./axios.min.js",
+      },
+    ]),
   ],
   devServer: {
     contentBase: path.join(__dirname, "dist"), //정적파일을 제공할 경로. 기본값은 웹팩 아웃풋.
@@ -95,5 +106,36 @@ module.exports = {
     port: 8080, //개발서버 포트 설정
     stats: "errors-only", // webpack server 실행 후 콘솔에 표시될 메시지 수준을 정함. ['none', 'errors-only', 'mininal', 'normal', 'verbose']
     historyApiFallback: true, //히스토리 API를 사용하는 SPA 개발 시 설정. 404가 발생하면 index.html로 리다이렉트한다.
+    before: (app) => {
+      //목업 데이터
+      app.get("/api/users", (req, res) => {
+        res.json([
+          { id: 1, name: "Alice" },
+          { id: 2, name: "Bek" },
+        ]);
+      });
+    },
+    hot: true, //핫 모듈 리플레이스먼트 ON
+  },
+  optimization: {
+    minimizer:
+      mode === "production"
+        ? [
+            new OptimizeCSSAssetsPlugin(), //css 압축
+            new TerserPlugin({
+              terserOptions: {
+                compress: {
+                  drop_console: true, //콘솔 로그 제거
+                },
+              },
+            }),
+          ]
+        : [],
+    splitChunks: {
+      chunks: "all",
+    },
+  },
+  externals: {
+    axios: "axios",
   },
 };

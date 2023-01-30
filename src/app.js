@@ -29,3 +29,10 @@ document.addEventListener("DOMContentLoaded", () => {
 // prettier 확인
 // console.log(" -------------------------------------------------------- 80자가 넘는 매우 긴 문장 --------------------------------------------------------");
 // console.log(console.log, console.assert, console.clear, console.count, console.countReset, console.debug, console.dir, console.dirxml, console.error, console.group, console.groupCollapsed);
+
+// mockup 확인
+import axios from "axios";
+document.addEventListener("DOMContentLoaded", async () => {
+  const res = await axios.get("/api/users");
+  console.log(res);
+});
